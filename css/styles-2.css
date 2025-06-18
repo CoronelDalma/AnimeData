@@ -162,7 +162,8 @@ button {
 }
 
 /* --- sections --- */
-.description {
+/* --- hero section --- */
+.description-carousel {
     padding: 2rem;
     text-align: center;
     height: 80vh;
@@ -170,7 +171,68 @@ button {
     background: linear-gradient(171deg,rgba(10, 10, 15, 1) 49%, var(--primary-color) 98%, var(--primary-hover-color) 100%);*/
     background: var(--background-color);
     background: linear-gradient(171deg,var(--background-color) 49%, var(--primary-color) 100%);
+    overflow: hidden;
+    position: relative;
 }
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease;
+    height: 90%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    /*background: var(--card-background);
+    box-shadow: 0 4px 8px var(--card-shadow);*/
+    display: flex;
+    gap: 2rem;
+}
+
+.intro {
+    flex-direction: column;
+}
+
+.carousel-slide h2 {
+    font-size: var(--font-size-xl);
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.carousel-slide img {
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--card-shadow);
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.carousel-controls button {
+    background: var(--accent-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.2rem;
+   /* transition: var(--transition);*/
+}
+
+.carousel-controls button:hover {
+    background: var(--primary-color);
+    color: var(--surface-color);
+}
+
 
 /* --- trending section --- */
 #topics {
@@ -333,6 +395,17 @@ footer {
 
 /* --- media queries --- */
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav a {
+        margin: 0.5rem 0;
+    }
     .anime-featured {
         flex-direction: column;
         align-items: center;
@@ -357,5 +430,43 @@ footer {
     }
     .search-section {
         padding: 1rem;
+    }
+
+    /* Hero section */
+    .description-carousel {
+        height: auto;
+    }   
+    .carousel-slide {
+        flex-direction: column;
+        align-items: center;
+    }
+    .carousel-slide img {
+        width: min(300px, 80vw);
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 0.5rem 0;
+    }
+
+    .carousel-controls {
+        flex-direction: column;
+    }
+
+    .carousel-controls button {
+        width: 100%;
+        margin-bottom: 0.5rem;
     }
 }

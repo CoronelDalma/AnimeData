@@ -30,6 +30,8 @@ searchForm.addEventListener('submit', (event) => {
         <p class="error-message">Por favor, ingresa un término de búsqueda.</p>`; 
         
     }
+    searchInput.value = ''; 
+    result.scrollIntoView({ behavior: 'smooth' }); 
 });
 
 /* Get data from Kitsu API */
@@ -124,5 +126,3 @@ function displaySearchData(data) {
 
 // Llamada a la API de Kitsu
 fetchAnimeData(animeTrendingUrl , displayAnimeData);
-
-//fetchAnimeData(mangasTrendingUrl + limit);
