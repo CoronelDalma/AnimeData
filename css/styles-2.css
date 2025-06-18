@@ -1,0 +1,361 @@
+:root {
+    --background-color: #F2F7FF;           /* Azul pastel muy claro */
+    --surface-color: #FFFFFF;
+    --text-color: #1B1B2E;
+    --text-muted-color: #6E7280;
+
+    --primary-color: #9B5DE5;              /* Violeta eléctrico */
+    --primary-hover-color: #7F39D6;
+
+    --secondary-color: #F15BB5;            /* Rosa fucsia */
+    --secondary-hover-color: #E843A0;
+
+    --accent-color: #00BBF9;               /* Cian vibrante */
+    --accent-hover-color: #00A1DA;
+
+    --danger-color: #F25F5C; /* peligro, errores */
+    --danger-hover-color: #dc2626;
+
+    --warning-color: #FFBA08;
+    --info-color: #3A86FF;
+
+    --card-background: #FFFFFF; /* fondo de tarjetas */
+    --card-border: #e5e7eb; /* borde de tarjetas */
+    --card-shadow: rgba(0, 0, 0, 0.05); /* sombra de tarjetas */
+    --border-radius: 8px; /* bordes redondeados */
+
+    --font-family: 'Inter', sans-serif; /* fuente principal */
+    --font-size-base: 1rem; /* tamaño de fuente base */
+    --font-size-sm: 0.875rem; /* tamaño de fuente pequeño */
+    --font-size-lg: 2rem; /* tamaño de fuente grande */
+    --font-size-xl: 2.5rem; /* tamaño de fuente extra grande */
+    --line-height: 1.5; /* altura de línea */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    --background-color: #0A0A0F;              /* Azul petróleo profundo */
+    --surface-color: #14141C;
+    --text-color: #E5E7EB;
+    --text-muted-color: #9CA3AF;
+
+    --primary-color: #9B5DE5;                /* Violeta neón */
+    --primary-hover-color: #7F39D6;
+
+    --secondary-color: #F15BB5;              /* Rosa vibrante */
+    --secondary-hover-color: #E843A0;
+
+    --accent-color: #00F5D4;                 /* Verde cian tipo neón */
+    --accent-hover-color: #00DAC0;
+
+    --danger-color: #F87171;
+    --danger-hover-color: #EF4444;
+
+    --warning-color: #FBBF24;
+    --info-color: #60A5FA;
+
+    --card-background: #1E1E29;
+    --card-shadow: rgba(0, 0, 0, 0.5);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(238, 23, 23, 0.333), transparent),
+        radial-gradient(2px 2px at 60% 80%, rgba(221, 21, 21, 0.2), transparent),
+        radial-gradient(1.5px 1.5px at 90% 10%, #fff2, transparent);
+    background-repeat: repeat;
+    animation: moveStars 30s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes moveStars {
+    from { background-position: 0 0; }
+    to { background-position: -1000px 500px; }
+}
+
+
+header {
+    background-color: transparent;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px var(--card-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}
+
+h1 {
+    font-size: var(--font-size-xl);
+    color: var(--text-color);
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto; /* para alinear a la derecha */
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    margin: 0 1rem;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+ul {
+    display: flex;
+    list-style: none;
+}
+
+button {
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-sm);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+} 
+
+#toggle-theme {
+    background-color: var(--accent-color);
+
+    margin-left: auto; /* para alinearlo a la derecha si está en un flex */
+}
+
+#toggle-theme:hover {
+    background-color: var(--accent-hover-color);
+}
+
+/* --- sections --- */
+.description {
+    padding: 2rem;
+    text-align: center;
+    height: 80vh;
+    /*background: #0A0A0F;
+    background: linear-gradient(171deg,rgba(10, 10, 15, 1) 49%, var(--primary-color) 98%, var(--primary-hover-color) 100%);*/
+    background: var(--background-color);
+    background: linear-gradient(171deg,var(--background-color) 49%, var(--primary-color) 100%);
+}
+
+/* --- trending section --- */
+#topics {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.anime-featured {
+    display: flex;
+    gap: 1rem;
+    background-color: var(--surface-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--card-shadow);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anime-featured img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+h3 {
+    margin: 0.5rem;
+    color: var(--primary-color);
+}
+span {
+    color: var(--primary-color);
+    font-size: var(--font-size-sm);
+}
+
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    /*overflow: hidden;*/
+}
+
+.trending-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--card-shadow);
+    padding: 1rem;
+    /*width: 100%;
+    max-width: 300px;*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trending-card img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 2/3; 
+    border-radius: var(--border-radius);
+}
+
+/* --- search section --- */
+.error-message {
+    color: var(--danger-color);
+    font-size: var(--font-size-base);
+    text-align: center;
+    margin-top: 1rem;
+}
+.search-section {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    height: fit-content;
+}
+
+#search-form {
+    margin: 1rem;
+}
+.search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    width: min(100%, 1200px);
+}
+.anime-card {
+    margin: 0.5rem;
+    background-color: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--card-shadow);
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    gap: 1rem;
+}
+
+.anime-card img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+.anime-card p {
+    margin: 0;
+    color: var(--text-muted-color);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height);
+}
+
+.anime-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+.anime-meta span {
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    background-color: var(--accent-hover-color);
+}
+
+/* --- footer --- */
+footer {
+    background-color: var(--surface-color);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 -2px 4px var(--card-shadow);
+    position: relative;
+}
+
+/* --- components --- */
+.card, button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn {
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color), var(--accent-color));
+    animation: grandientShift 4s ease infinite;
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+}
+
+/* --- media queries --- */
+@media (max-width: 768px) {
+    .anime-featured {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .anime-featured img {
+        width: 100%;
+        height: auto;
+    }
+
+    .trending-card {
+        max-width: 100%;
+    }
+
+    .anime-card {
+        flex-direction: column;
+        align-items: center;
+    }
+    .anime-card img {
+        width: 100%;
+        height: auto;
+    }
+    .search-section {
+        padding: 1rem;
+    }
+}

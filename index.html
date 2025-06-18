@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP IntegradorA</title>
+    <link rel="stylesheet" href="css/styles-2.css">
+    <link rel="stylesheet" href="./components/animacion/animacion.css">
+</head>
+<body>
+    <header>
+        <h1>Tecno3F</h1>
+        <div id="animacion"></div>  
+        <div class="header-content">
+            <nav>
+                <ul>
+                    <li><a href="https://kitsu.docs.apiary.io/#" target="_blank"> Kitsu API</a></li>
+                    <li><a href="#descripcion">Descripción</a></li>
+                    <li><a href="#topics">Datos de la API</a></li>
+                    <li><a href="#search">Búsqueda</a></li>
+                </ul>
+            </nav>    
+            <button id="toggle-theme">Cambiar tema</button>
+        </div>
+
+    </header>
+    <main>
+        <section class="description" id="descripcion">
+            <h2>Utilizacion de api para buscar peliculas</h2>
+            <p>Este es un proyecto integrador que utiliza HTML, CSS y JavaScript.</p>
+        </section>
+        <section class="trending-section" id="topics">
+            <h2>Aburrid@?</h2>
+            <p>Acá tenes algunas sugerencias</p>
+            <div id="api-data"></div>
+        </section>
+        <section class="search-section">
+            <h2 id="search">Ya sabés que buscas? Adelante...</h2>
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Buscar...">
+                <button class="btn" type="submit">Buscar</button>
+            </form>
+            <div id="search-results"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 TP Integrador</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+        <!-- carga de componentes  -->
+    <script src="js/components.js"></script>
+</body>
+</html>

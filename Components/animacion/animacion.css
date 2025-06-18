@@ -1,0 +1,37 @@
+.leaves-container {
+    /*position: fixed;
+    top: 0;
+    left: 0;*/
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    /*z-index: -1;*/
+}
+
+.leaf {
+    position: absolute;
+    top: -50px;
+    width: 30px;
+    height: 30px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23f15bb5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 2C20 8 8 20 8 32c0 8 8 20 24 30 16-10 24-22 24-30 0-12-12-24-24-30z"/></svg>');
+    background-size: cover;
+    opacity: 0.7;
+    animation: fall 10s linear infinite;
+}
+
+.leaf:nth-child(2) { animation-delay: 2s; }
+.leaf:nth-child(3) { animation-delay: 4s; }
+.leaf:nth-child(4) { animation-delay: 6s; }
+.leaf:nth-child(5) { animation-delay: 8s; }
+
+@keyframes fall {
+    0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    }
+    100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+    }
+}

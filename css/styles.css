@@ -1,0 +1,99 @@
+:root {
+    --background-color: #f0f4f8;
+    --surface-color: #ffffff;
+    --text-color: #333333;
+    --text-muted-color: #555555;
+
+    --primary-color: #ff7f50; /* botones. acentos */
+    --primary-hover-color: #ff5733;
+
+    --secondary-color: #4f46e5;
+    --secondary-hover-color: #4338ca;
+
+    --accent-color: #10b981; /* éxito, badges, etiquetas */
+    --accent-hover-color: #059669;
+
+    --danger-color: #ef4444; /* peligro, errores */
+    --danger-hover-color: #dc2626;
+
+    --warning-color: #f59e0b; /*advertencias*/
+    --info-color: #3b82f6; /* Información */
+
+    --card-background: #ffffff; /* fondo de tarjetas */
+    --card-border: #e5e7eb; /* borde de tarjetas */
+    --card-shadow: rgba(0, 0, 0, 0.1); /* sombra de tarjetas */
+    --border-radius: 8px; /* bordes redondeados */
+
+    --font-family: 'Arial', sans-serif; /* fuente principal */
+    --font-size-base: 1rem; /* tamaño de fuente base */
+    --font-size-sm: 0.875rem; /* tamaño de fuente pequeño */
+    --font-size-lg: 2rem; /* tamaño de fuente grande */
+    --font-size-xl: 2.5rem; /* tamaño de fuente extra grande */
+    --line-height: 1.5; /* altura de línea */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    --background-color: #121212;
+    --surface-color: #1E1E1E;
+    --text-color: #EAEAEA;
+    --text-muted-color: #B0B0B0;
+
+    --primary-color: #FF7F50;
+    --primary-hover-color: #FF5733;
+
+    --secondary-color: #818CF8;
+    --secondary-hover-color: #6366F1;
+
+    --accent-color: #34D399;
+    --accent-hover-color: #10B981;
+
+    --danger-color: #F87171;
+    --danger-hover-color: #EF4444;
+
+    --warning-color: #FBBF24;
+    --info-color: #60A5FA;
+
+    --card-background: #2C2C2C;
+    --card-shadow: rgba(0, 0, 0, 0.5);
+}
+
+header {
+    background-color: var(--surface-color);
+    padding: 1rem;
+    box-shadow: 0 2px 4px var(--card-shadow);
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-size: var(--font-size-xl);
+    color: var(--text-color);
+    margin: 0;
+}
+
+#toggle-theme {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-sm);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-left: auto; /* para alinearlo a la derecha si está en un flex */
+}
+
+#toggle-theme:hover {
+    background-color: var(--primary-hover-color);
+}
+
+.card, button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
