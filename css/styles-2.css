@@ -177,7 +177,7 @@ button {
 
 .carousel-track {
     display: flex;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease-in-out;
     height: 90%;
 }
 
@@ -225,7 +225,6 @@ button {
     border-radius: var(--border-radius);
     cursor: pointer;
     font-size: 1.2rem;
-   /* transition: var(--transition);*/
 }
 
 .carousel-controls button:hover {
