@@ -1,20 +1,22 @@
 /* * Toggle Dark Mode */
+const icon = document.getElementById('theme-icon');
 const toggleBtn = document.getElementById('toggle-theme');
-localStorage.getItem('theme') === 'dark' ? document.body.classList.add('dark') : document.body.classList.remove('dark');
-// Set initial button text based on theme
-if (document.body.classList.contains('dark')) {
-    toggleBtn.textContent = 'Light Mode';
-} else {
-    toggleBtn.textContent = 'Dark Mode';
+let isDarkMode = localStorage.getItem('theme') === 'dark';
+isDarkMode ? document.body.classList.add('dark') : document.body.classList.remove('dark');
+
+
+function setIcon() {
+    if (document.body.classList.toggle('dark')) {
+        icon.src = 'img/flor.png';
+    } else {
+        icon.src = 'img/demonio.png';
+    }
 }
 
+setIcon();
+
 toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    if (document.body.classList.contains('dark')) {
-        toggleBtn.textContent = 'Light Mode';
-    } else {
-        toggleBtn.textContent = 'Dark Mode';
-    }
+    setIcon();
     localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
 });
 
