@@ -14,7 +14,7 @@ toggleBtn.addEventListener('click', () => {
 /* Form for searching anime or manga */
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
-    // Clear previous results
+
 const result = document.getElementById('search-results');
 result.innerHTML = '';
 searchForm.addEventListener('submit', (event) => {
@@ -24,7 +24,6 @@ searchForm.addEventListener('submit', (event) => {
     if (searchQuery) {
         // Fetch data from Kitsu API
         fetchAnimeData(animeUrl + `?filter[text]=${searchQuery}`, displaySearchData);
-       // fetchAnimeData(mangaUrl + `?filter[text]=${searchQuery}`, displaySearchData);
     } else {
         result.innerHTML = `
         <p class="error-message">Por favor, ingresa un término de búsqueda.</p>`; 
@@ -124,5 +123,81 @@ function displaySearchData(data) {
     });
 }
 
-// Llamada a la API de Kitsu
+// Call the function to fetch and display trending anime data
 fetchAnimeData(animeTrendingUrl , displayAnimeData);
+
+// --- ---- contact form
+const contactForm = document.getElementById('contact-form');
+const fields = document.querySelectorAll('.required-field');
+const submitBtn = document.getElementById('submit-button'); 
+
+// Check form validity on input
+const checkFormValidity = () => {
+    let isValid = true;
+    fields.forEach(field => {
+    if (!field.value.trim()) {
+        isValid = false;
+    } else if (field.type === 'email' && !validateEmail(field.value.trim())) {
+        isValid = false;
+        }
+    });
+    submitBtn.disabled = !isValid;
+    isValid ? submitBtn.classList.remove('disabled') : submitBtn.classList.add('disabled');
+};
+
+const validateEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);    
+}
+
+fields.forEach(field => {
+    const errorMsg = document.createElement("small");
+    errorMsg.classList.add("error-message");
+    field.parentNode.insertBefore(errorMsg, field.nextSibling);
+
+    const validate = () => {
+        const value = field.value.trim();
+        if (!value) {
+            errorMsg.textContent = `Field "${field.name}" is required`;
+            field.classList.add("invalid");
+        } else if (field.type === 'email' && !validateEmail(value)) {
+            errorMsg.textContent = `Must be a valid email`;
+            field.classList.add("invalid");
+        } else {
+        errorMsg.textContent = "";
+        field.classList.remove("invalid");
+        }
+        checkFormValidity();
+    };
+
+    field.addEventListener("blur", validate);
+    field.addEventListener("input", validate);
+});
+
+checkFormValidity();
+
+contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let hasError = false;
+    fields.forEach(field => {
+        if (!field.value.trim()) {
+        hasError = true;
+        field.classList.add("invalid");
+        field.nextSibling.textContent = `Field "${field.name}" is required`;
+        }
+    });
+    if (hasError) {
+        event.preventDefault();
+
+    } else {
+        fields.forEach(field => {
+            field.classList.remove("invalid");
+            field.nextSibling.textContent = "";
+        });
+    }
+
+    // Show success message
+    const messageDiv = document.querySelector('.success-message');
+    messageDiv.innerHTML = '<p>Thank you for contacting us!</p>';
+    contactForm.reset();
+});
